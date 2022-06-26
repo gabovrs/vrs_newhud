@@ -1,0 +1,199 @@
+:root {
+    --color1: #24303c;
+    --color2: #181e24;
+
+    --color4: #c4832e;
+    --color5: #2ebac4;
+
+    --color6: #b62d2d;
+    --color7: #2db63d;
+
+    --color8: #ffffff;
+    --color9: gold;
+
+}
+
+* {
+    margin: 0;
+    color: white;
+    font-family: calibri;
+    font-size: 13px;
+}
+
+.logo {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 4.5%;
+    opacity: 70%;
+}
+
+.player-hud {
+    position: absolute;
+    right: 0%;
+    bottom: 0.5%;
+}
+
+.player-info {
+    background-color: var(--color1);
+    padding: 5px;
+    border-bottom-left-radius: 10px;
+}
+
+.row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr;
+}
+
+.row2 {
+    display: grid;
+    grid-template-columns: 0fr 1fr;
+}
+
+.row3 {
+    display: grid;
+    grid-template-columns: 14vh 1fr 1fr;
+}
+
+.hunger-row {
+    display: grid;
+    grid-template-columns: 0.1fr 1fr;
+}
+
+.fuel-row {
+    display: grid;
+    grid-template-columns: 0.1fr 1fr;
+}
+
+.thirst-row {
+    display: grid;
+    grid-template-columns: 0.1fr 1fr;
+}
+
+#info {
+    margin: 2px;
+    background-color: var(--color2);
+    padding: 5px;
+    border-radius: 5px;
+}
+
+.header {
+    display: grid;
+    grid-template-columns: 1fr .8fr .8fr;
+    place-items: center;
+    background-color: var(--color2);
+    padding: 10px;
+    border-top-left-radius: 10px;
+}
+
+.cc-container {
+    border: 1px solid gold;
+    border-radius: 10px;
+    text-align: center;
+    margin-top: 5px;
+}
+
+.cc-balance, .fa-coins {
+    color: gold;
+    font-size: 10px;
+    font-weight: bold;
+}
+
+.id-container, .hour-container {
+    font-size: 18px;
+}
+
+.mic {
+    padding: 5px;
+    text-align: center;
+    font-size: 13px;
+    opacity: 70%;
+    font-weight: bold;
+}
+
+.hungerbar {
+    text-align: center;
+    border-radius: 20px;
+}
+
+.hungerbar-done {
+    background-color: var(--color4);
+    border-radius: 20px;
+    width: 70%;
+    font-weight: bold;
+    font-size: 10px;
+    padding: 2px;
+    transition: 1s ease;
+}
+
+.thirstbar {
+    text-align: center;
+    border-radius: 20px;
+}
+
+.thirstbar-done {
+    background-color: var(--color5);
+    border-radius: 20px;
+    width: 70%;
+    font-weight: bold;
+    font-size: 10px;
+    padding: 2px;
+    transition: 1s ease;
+}
+
+.speedometer {
+    position: absolute;
+    bottom: 0%;
+    left: 44%;
+    background-color: var(--color1);
+    padding: 10px;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+}
+
+.velocity-balance {
+    font-weight: bold;
+    font-size: 30px;
+    padding: 3px;
+}
+
+.fuelbar {
+    text-align: center;
+    border-radius: 20px;
+}
+
+.fuelbar-done {
+    background-color: var(--color4);
+    border-radius: 20px;
+    width: 100%;
+    font-weight: bold;
+    font-size: 10px;
+    padding: 2px;
+    transition: 4s ease;
+}
+
+.seatbelt-state{
+    padding: 5px;
+}
+
+.seatbelt, .lights {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.fa-tachometer-alt {
+    font-size: 20px;
+}
+
+.fa-adjust {
+    color: var(--color8);
+    font-size: 25px;
+    opacity: 50%;
+}
+
+.fa-compress-alt {
+    font-size: 25px;
+    opacity: 50%;
+}
