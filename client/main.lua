@@ -7,7 +7,6 @@ RegisterNetEvent('esx:playerLoaded')
 AddEventHandler('esx:playerLoaded', function(xPlayer)
 	ESX.PlayerData = xPlayer
 	ESX.PlayerLoaded = true
-    showHud(true)
 end)
 
 RegisterNetEvent('esx:onPlayerLogout')
@@ -41,12 +40,7 @@ Citizen.CreateThread(function()
     end
 end)
 
-RegisterCommand('debughud', function()
-    print(hudVisible, playerhudVisible, speedometerVisible, seatbeltOn)
-end)
-
 function UpdateHud()
-
     local pauseMenu = IsPauseMenuActive()
 
     if pauseMenu then
@@ -61,22 +55,13 @@ function UpdateHud()
     local id = GetPlayerServerId(NetworkGetEntityOwner(GetPlayerPed(-1)))
     local username = GetPlayerName(PlayerId())
     local isPlayerTalking = NetworkIsPlayerTalking(PlayerId())
-    local hour = CalculateTimeToDisplay()
+    local hour = calculateTimeToDisplay()
     local bool, lightsOn, highbeamsOn = GetVehicleLightsState(pedVehicle)
     local job = ESX.PlayerData.job.label
     local grade = ESX.PlayerData.job.grade_label
-    local miclevel
-    local vehicleSpeed
-    local fuel
-    local myhunger
-    local mythirst
+    local miclevel, vehicleSpeed, fuel, myhunge, mythirst, blackmoney, bank, money
 
-    local blackmoney
-    local bank
-    local money
-    local cc
-
-    --[[local proximity = LocalPlayer.state.proximity.mode
+    local proximity = LocalPlayer.state.proximity.mode
 
     if proximity == "Normal" then
         miclevel = ".."
@@ -84,7 +69,7 @@ function UpdateHud()
         miclevel = "."
     elseif proximity == "Shouting" then
         miclevel = "..."
-    end]]
+    end
 
     TriggerEvent('esx_status:getStatus', 'hunger', function(hunger)
         myhunger = hunger.getPercent()
@@ -101,8 +86,6 @@ function UpdateHud()
               bank = ESX.PlayerData.accounts[i].money
         elseif ESX.PlayerData.accounts[i].name == 'money' then
               money = ESX.PlayerData.accounts[i].money
-        elseif ESX.PlayerData.accounts[i].name == 'cc' then
-                cc = ESX.PlayerData.accounts[i].money
         end
     end
 
@@ -131,9 +114,8 @@ function UpdateHud()
             blackmoney = blackmoney,
             bank = bank,
             money = money,
-            cc = cc,
             mic = isPlayerTalking,
-            --miclevel = miclevel,
+            miclevel = miclevel,
             hunger = myhunger,
             thirst = mythirst,
             fuel = fuel,
@@ -146,7 +128,7 @@ function UpdateHud()
 
 end
 
-function CalculateTimeToDisplay()
+function calculateTimeToDisplay()
 	hour = GetClockHours()
 	minute = GetClockMinutes()
 
@@ -205,5 +187,9 @@ function showSpeedometer(boolean)
     )
 
     speedometerVisible = boolean
+end
+
+if ESX.PlayerLoaded then
+    showHud(true)
 end
 

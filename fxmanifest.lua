@@ -2,8 +2,12 @@ fx_version 'adamant'
 
 game 'gta5'
 
+version '1.1'
+
+author 'VRS'
+
 client_scripts {
-    "client.lua"
+    "client/main.lua"
 }
 
 ui_page {
@@ -11,8 +15,7 @@ ui_page {
 }
 
 files {
-	'html/*',
-    'html/fonts/*'
+	'html/*'
 }
 
 shared_script '@es_extended/imports.lua'
